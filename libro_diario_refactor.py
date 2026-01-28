@@ -13,7 +13,13 @@ class LibroDiario:
         """Inicializa el libro diario con lista vacía de transacciones."""
         self.transacciones: list[dict] = []
 
-    def agregar(self, fecha: str, descripcion: str, monto: float, tipo: str) -> None:
+    def agregar(
+        self,
+        fecha: str,
+        descripcion: str,
+        monto: float,
+        tipo: str,
+    ) -> None:
         """
         Agrega una transacción al libro con validaciones básicas.
 
@@ -24,7 +30,8 @@ class LibroDiario:
             tipo: "ingreso" o "egreso".
 
         Raises:
-            ValueError: si tipo es inválido, monto no es positivo o descripción vacía.
+ValueError: si tipo es inválido, monto no es positivo o
+    descripción vacía.
         """
         descripcion = (descripcion or "").strip()
         if not descripcion:
