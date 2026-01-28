@@ -1,8 +1,8 @@
 """
-M骴ulo de Libro Diario (refactorizado).
+M贸dulo de Libro Diario (refactorizado).
 
-Objetivo: mejorar calidad de c骴igo aplicando PEP8, docstrings,
-validaciones y separaci髇 entre l骻ica y presentaci髇.
+Objetivo: mejorar calidad de c贸digo aplicando PEP8, docstrings,
+validaciones y separaci贸n entre l贸gica y presentaci贸n.
 """
 
 
@@ -10,30 +10,30 @@ class LibroDiario:
     """Clase para registrar transacciones y calcular resumen contable."""
 
     def __init__(self) -> None:
-        """Inicializa el libro diario con lista vac韆 de transacciones."""
+        """Inicializa el libro diario con lista vac铆a de transacciones."""
         self.transacciones: list[dict] = []
 
     def agregar(self, fecha: str, descripcion: str, monto: float, tipo: str) -> None:
         """
-        Agrega una transacci髇 al libro con validaciones b醩icas.
+        Agrega una transacci贸n al libro con validaciones b谩sicas.
 
         Args:
-            fecha: Fecha de la transacci髇.
-            descripcion: Descripci髇 de la transacci髇.
-            monto: Monto de la transacci髇 (debe ser > 0).
+            fecha: Fecha de la transacci贸n.
+            descripcion: Descripci贸n de la transacci贸n.
+            monto: Monto de la transacci贸n (debe ser > 0).
             tipo: "ingreso" o "egreso".
 
         Raises:
-            ValueError: si tipo es inv醠ido, monto no es positivo o descripci髇 vac韆.
+            ValueError: si tipo es inv谩lido, monto no es positivo o descripci贸n vac铆a.
         """
         descripcion = (descripcion or "").strip()
         if not descripcion:
-            raise ValueError("La descripci髇 no puede estar vac韆.")
+            raise ValueError("La descripci贸n no puede estar vac铆a.")
 
         try:
             monto = float(monto)
         except (TypeError, ValueError) as exc:
-            raise ValueError("El monto debe ser num閞ico.") from exc
+            raise ValueError("El monto debe ser num茅rico.") from exc
 
         if monto <= 0:
             raise ValueError("El monto debe ser mayor que 0.")
@@ -53,7 +53,7 @@ class LibroDiario:
 
     def resumen(self) -> dict:
         """
-        Calcula y retorna el resumen num閞ico del libro.
+        Calcula y retorna el resumen num茅rico del libro.
 
         Returns:
             Diccionario con total_ingresos, total_egresos y balance.
